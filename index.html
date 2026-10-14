@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pathfinder helps students explore tailored career roadmaps by degree programme and domain."
+    />
+    <title>Pathfinder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar" aria-label="Main header">
+        <div class="brand" aria-label="Pathfinder home">
+          <span class="brand-mark">P</span>
+          <span>Pathfinder</span>
+        </div>
+        <div class="header-tag">Career Roadmaps</div>
+      </header>
+
+      <main class="content" aria-live="polite">
+        <section class="step-card active" id="step-1" data-step="1">
+          <div class="progress-label">STEP 01 OF 03</div>
+
+          <div class="step-copy">
+            <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+            <h1>Build your path.</h1>
+            <p class="supporting">Choose your programme details to discover your career roadmap.</p>
+          </div>
+
+          <form id="student-form" novalidate>
+            <div class="field-group">
+              <label for="full-name">Full Name</label>
+              <input id="full-name" name="fullName" type="text" autocomplete="name" required />
+              <p class="field-error" id="full-name-error" aria-live="polite"></p>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label for="course">Course</label>
+                <select id="course" name="course" required>
+                  <option value="">Select your course</option>
+                  <option value="BS">BS</option>
+                  <option value="MS">MS</option>
+                  <option value="BS-MS">BS-MS</option>
+                </select>
+                <p class="field-error" id="course-error" aria-live="polite"></p>
+              </div>
+
+              <div class="field-group">
+                <label for="specialization">Specialization</label>
+                <select id="specialization" name="specialization" required>
+                  <option value="">Select a specialization</option>
+                  <option value="Artificial Intelligence and Cybersecurity">
+                    Artificial Intelligence and Cybersecurity
+                  </option>
+                  <option value="Computer Science and Data Analytics">
+                    Computer Science and Data Analytics
+                  </option>
+                </select>
+                <p class="field-error" id="specialization-error" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <p class="privacy-note">
+              Student information stays in memory only and is not stored, transmitted, or retained.
+            </p>
+
+            <div class="action-row single-action">
+              <button type="submit" class="primary-button">Continue</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="step-card" id="step-2" data-step="2" hidden>
+          <div class="progress-label">STEP 02 OF 03</div>
+
+          <div class="step-copy narrow-copy">
+            <p class="eyebrow">DISCOVER YOUR DIRECTION</p>
+            <h2>Choose your direction.</h2>
+            <p class="supporting">Select a domain to explore its curated career roadmaps.</p>
+          </div>
+
+          <div class="domain-grid" aria-label="Available domains">
+            <button type="button" class="domain-card" data-domain="AICS">
+              <div class="card-visual aics-visual" aria-hidden="true">
+                <span class="visual-glow"></span>
+                <span class="visual-core"></span>
+              </div>
+              <div class="domain-copy">
+                <div class="domain-header">
+                  <span class="domain-code">AICS</span>
+                  <span class="domain-arrow" aria-hidden="true">→</span>
+                </div>
+                <h3>Artificial Intelligence and Cybersecurity</h3>
+                <p>4 ROADMAPS</p>
+              </div>
+            </button>
+
+            <button type="button" class="domain-card" data-domain="CSDA">
+              <div class="card-visual csda-visual" aria-hidden="true">
+                <span class="visual-glow"></span>
+                <span class="visual-core"></span>
+              </div>
+              <div class="domain-copy">
+                <div class="domain-header">
+                  <span class="domain-code">CSDA</span>
+                  <span class="domain-arrow" aria-hidden="true">→</span>
+                </div>
+                <h3>Computer Science and Data Analytics</h3>
+                <p>5 ROADMAPS</p>
+              </div>
+            </button>
+          </div>
+
+          <div class="action-row back-row">
+            <button type="button" class="secondary-button" data-action="back-to-step-1">Back</button>
+          </div>
+        </section>
+
+        <section class="step-card" id="step-3" data-step="3" hidden>
+          <div class="progress-label">STEP 03 OF 03</div>
+
+          <div class="step-headline-row">
+            <div class="step-copy compact-copy">
+              <p class="eyebrow">ROADMAP LIBRARY</p>
+              <h2 id="roadmap-heading">Select a domain</h2>
+            </div>
+            <button type="button" class="secondary-button compact-back" data-action="back-to-step-2">Back</button>
+          </div>
+
+          <div class="selected-domain-pill" id="selected-domain-pill">AICS • 4 ROADMAPS</div>
+
+          <div class="roadmap-grid" id="roadmap-grid" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
