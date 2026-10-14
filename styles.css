@@ -329,42 +329,7 @@ select:hover {
 }
 
 .card-visual {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 90px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: var(--bg-deep);
-}
-
-.visual-glow,
-.visual-core {
-  position: absolute;
-  border-radius: 50%;
-}
-
-.visual-glow {
-  width: 62%;
-  height: 62%;
-  background: radial-gradient(circle, rgba(103, 6, 38, 0.22), rgba(103, 6, 38, 0.05) 58%, transparent 70%);
-}
-
-.visual-core {
-  width: 30%;
-  height: 30%;
-  border: 2px solid rgba(103, 6, 38, 0.92);
-  box-shadow: 0 0 24px rgba(103, 6, 38, 0.24);
-}
-
-.aics-visual .visual-core {
-  background: radial-gradient(circle, rgba(247, 241, 234, 0.8), rgba(103, 6, 38, 0.32));
-}
-
-.csda-visual .visual-core {
-  background: radial-gradient(circle, rgba(247, 241, 234, 0.8), rgba(103, 6, 38, 0.38));
+  display: none;
 }
 
 .domain-copy {
