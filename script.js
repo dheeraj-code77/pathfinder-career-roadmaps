@@ -1,3 +1,17 @@
+const COMPARISON_CRITERIA = [
+  ['A', 'Fresher Entry Accessibility', 'higher = easier entry'],
+  ['C', 'Learning Curve Manageability', 'higher = more manageable'],
+  ['D', 'Mathematics Requirement', 'higher = more maths'],
+  ['E', 'Production Coding Intensity', 'higher = more coding'],
+  ['F', 'Future Career Growth Trajectory', 'higher = stronger'],
+  ['G', 'AI Replacement and Automation Exposure', 'higher = more exposed'],
+  ['H', 'Hybrid-Degree Institutional Entry Barrier', 'higher = bigger barrier'],
+  ['I', 'Remote Job Accessibility', 'higher = more remote'],
+  ['K', 'Current Market Demand and Supply Dynamics', 'higher = more demand'],
+  ['L', 'Portfolio and Practical Evidence Dependency', 'higher = more proof'],
+  ['M', 'Career Flexibility and Transferability', 'higher = more transferable']
+];
+
 const DOMAIN_CONFIG = {
   AICS: {
     label: 'AICS',
@@ -9,28 +23,92 @@ const DOMAIN_CONFIG = {
         description: 'Builds defensive security habits and modern protection strategies for systems and networks.',
         icon: '🛡️',
         file: 'cyber-security-specialist.pdf',
-        available: true
+        available: true,
+        conclusion: 'Low AI exposure (G 3) and strong demand (K 8); certifications and hands-on lab proof (L 8) help bypass degree filters.',
+        scores: [7, 6, 3, 4, 8, 3, 5, 5, 8, 8, 8],
+        salary: ['₹3.5 – 7.0 LPA', '₹5.0 LPA', '₹8.0 – 15.0 LPA', 'Base pay + shift allowances + certification bonuses', 'Glassdoor, CyberSecurityAcademy, Networkers Home'],
+        employerFit: [
+          ['IT Services', 'Common', '₹3.5–5.0L'],
+          ['Product Cos.', 'Selective', '₹7.0–14.0L'],
+          ['Tech Startups', 'Selective', '₹5.0–9.0L'],
+          ['GCCs', 'Common', '₹6.0–11.0L'],
+          ['Remote Employers', 'Selective', '₹6.0–12.0L']
+        ],
+        availability: [
+          ['Intern', 'Widespread; SOC Tier-1, vulnerability screening'],
+          ['Fresher', 'High volume; SOC Analyst L1, Junior Pentester'],
+          ['Mid', 'High demand; SOC L2/L3, IR, Pentester'],
+          ['Senior', 'High demand; CISO, Security Architect']
+        ]
       },
       {
         title: 'AI Engineer',
         description: 'Explores systems, models, inference, and practical AI engineering workflows.',
         icon: '🤖',
         file: 'ai-engineer.pdf',
-        available: true
+        available: true,
+        conclusion: 'Top growth (F 10) and demand (K 9) with Low AI exposure (G 3); a deployed RAG/agent project is the key proof (L 9); fresher entry is Moderate (A 5).',
+        scores: [5, 4, 7, 8, 10, 3, 5, 7, 9, 9, 8],
+        salary: ['₹6.0 – 14.0 LPA', '₹9.0 LPA', '₹15.0 – 30.0 LPA', 'High base + performance bonus + equity/RSUs', 'ShifttoTech, Futurense, Kalvium, BeInCareer'],
+        employerFit: [
+          ['IT Services', 'Common', '₹5.0–8.0L'],
+          ['Product Cos.', 'Common', '₹10.0–20.0L'],
+          ['Tech Startups', 'Common', '₹8.0–16.0L'],
+          ['GCCs', 'Common', '₹9.0–18.0L'],
+          ['Remote Employers', 'Selective', '₹9.0–20.0L']
+        ],
+        availability: [
+          ['Intern', 'Moderate; prompt engineering, RAG, fine-tuning'],
+          ['Fresher', 'Moderate-High; AI App Developer, RAG Engineer'],
+          ['Mid', 'Rapidly growing; AI Systems Architect, Agent Eng.'],
+          ['Senior', 'Exceptionally high; Principal AI Architect']
+        ]
       },
       {
         title: 'DevSecOps Engineer',
         description: 'Connects security, automation, and delivery across modern engineering operations.',
         icon: '🔐',
         file: 'devsecops-engineer.pdf',
-        available: true
+        available: true,
+        conclusion: 'Lowest fresher entry in AI-CS (A 4); freshers usually start in junior DevOps or cloud roles. Growth is Very High (F 9), AI exposure Low (G 3).',
+        scores: [4, 4, 3, 8, 9, 3, 5, 7, 8, 8, 8],
+        salary: ['₹4.0 – 8.5 LPA', '₹6.2 LPA', '₹12.0 – 22.0 LPA', 'Fixed salary + cloud certification premium + annual bonus', 'Guvi, Futurense, ShriResume, AmbitionBox'],
+        employerFit: [
+          ['IT Services', 'Common', '₹4.0–6.5L'],
+          ['Product Cos.', 'Common', '₹9.0–16.0L'],
+          ['Tech Startups', 'Selective', '₹7.0–13.0L'],
+          ['GCCs', 'Common', '₹8.0–15.0L'],
+          ['Remote Employers', 'Selective', '₹8.0–16.0L']
+        ],
+        availability: [
+          ['Intern', 'Moderate; CI/CD pipeline, container security'],
+          ['Fresher', 'Moderate; Junior Cloud Security / DevOps Eng.'],
+          ['Mid', 'High demand; DevSecOps Lead, Cloud Sec. Architect'],
+          ['Senior', 'High demand; Head of Infra, Principal Architect']
+        ]
       },
       {
         title: 'Network Engineer',
         description: 'Covers the foundations of connectivity, protocols, routing, and internet infrastructure.',
         icon: '🌐',
         file: 'network-engineer.pdf',
-        available: true
+        available: true,
+        conclusion: 'Easiest fresher entry in AI-CS (A 8) and lowest maths (D 2); growth is lower (F 6) and AI exposure Moderate (G 5). CCNA-type certs are strong credentials.',
+        scores: [8, 7, 2, 3, 6, 5, 4, 4, 6, 6, 6],
+        salary: ['₹3.5 – 6.5 LPA', '₹4.5 LPA', '₹7.0 – 12.0 LPA', 'Fixed base pay + on-call allowances', 'Shiksha, NTT Data postings, Networkers Home'],
+        employerFit: [
+          ['IT Services', 'Common', '₹3.5–5.0L'],
+          ['Product Cos.', 'Selective', '₹6.0–10.0L'],
+          ['Tech Startups', 'Limited', '₹4.5–7.5L'],
+          ['GCCs', 'Common', '₹5.5–9.0L'],
+          ['Remote Employers', 'Limited', '₹4.0–8.0L']
+        ],
+        availability: [
+          ['Intern', 'Widespread; lab assistant, NOC intern'],
+          ['Fresher', 'High volume; Network Support L1, NOC Engineer'],
+          ['Mid', 'Moderate; Senior Network Admin, Engineer L2'],
+          ['Senior', 'Selective; Chief Network Architect']
+        ]
       }
     ]
   },
@@ -44,35 +122,101 @@ const DOMAIN_CONFIG = {
         description: 'Focuses on understanding data patterns and turning raw information into insight.',
         icon: '📊',
         file: 'data-analyst.pdf',
-        available: true
+        available: true,
+        conclusion: 'Easiest fresher entry in CSDA (A 8) with Moderate AI exposure (G 6); portfolio proof matters (L 8), transferability is high (M 8).',
+        scores: [8, 7, 6, 5, 7, 6, 4, 7, 7, 8, 8],
+        salary: ['₹3.0 – 6.0 LPA', '₹4.5 LPA', '₹8.0 – 14.0 LPA', 'Base salary + performance bonus', 'AmbitionBox, Glassdoor, Guvi'],
+        employerFit: [
+          ['IT Services', 'Common', '₹3.0–4.5L'],
+          ['Product Cos.', 'Selective', '₹6.0–10.0L'],
+          ['Tech Startups', 'Common', '₹4.0–7.5L'],
+          ['GCCs', 'Selective', '₹5.5–8.5L'],
+          ['Remote Employers', 'Selective', '₹4.5–9.0L']
+        ],
+        availability: [
+          ['Intern', 'Widespread; high conversion rates in analytics'],
+          ['Fresher', 'High volume; entry via BI, SQL and reporting'],
+          ['Mid', 'Strong demand; shift to predictive analytics'],
+          ['Senior', 'Selective; Analytics Manager / Lead BI Architect']
+        ]
       },
       {
         title: 'Full Stack Developer',
         description: 'Covers the front-end and back-end foundations behind modern web applications.',
         icon: '💻',
         file: 'full-stack-developer.pdf',
-        available: true
+        available: true,
+        conclusion: 'Largest entry-level hiring pool (A 7, K 8); portfolio is decisive (L 9) and coding intensity is highest (E 9); AI exposure is Moderate (G 5).',
+        scores: [7, 6, 3, 9, 8, 5, 4, 8, 8, 9, 9],
+        salary: ['₹4.0 – 8.0 LPA', '₹6.0 LPA', '₹10.0 – 20.0 LPA', 'Fixed pay + annual bonus + stock options (startups)', 'Indeed, PayScale, Glassdoor'],
+        employerFit: [
+          ['IT Services', 'Common', '₹3.5–5.0L'],
+          ['Product Cos.', 'Common', '₹8.0–16.0L'],
+          ['Tech Startups', 'Common', '₹5.0–12.0L'],
+          ['GCCs', 'Common', '₹7.5–13.0L'],
+          ['Remote Employers', 'Selective', '₹6.0–15.0L']
+        ],
+        availability: [
+          ['Intern', 'Widespread; startup and open-source driven'],
+          ['Fresher', 'High volume; MERN/MEAN stack entry roles'],
+          ['Mid', 'High demand; system design, backend scaling'],
+          ['Senior', 'High demand; Staff Engineer / Software Architect']
+        ]
       },
       {
         title: 'Data Engineer',
         description: 'Designs data pipelines, systems, and foundations for reliable data flow.',
         icon: '🧰',
         file: 'data-engineer.pdf',
-        available: true
+        available: true,
+        conclusion: 'Very High growth (F 9) and Low AI exposure (G 3); fresher entry is Moderate (A 5) and the learning curve is mid-level (C 5).',
+        scores: [5, 5, 5, 8, 9, 3, 5, 6, 8, 8, 8],
+        salary: ['₹4.5 – 9.0 LPA', '₹7.0 LPA', '₹11.0 – 22.0 LPA', 'Fixed CTC + joining bonus + ESOPs/RSUs', 'AmbitionBox, 6figr, levels.fyi'],
+        employerFit: [
+          ['IT Services', 'Common', '₹4.0–6.5L'],
+          ['Product Cos.', 'Selective', '₹10.0–18.0L'],
+          ['Tech Startups', 'Selective', '₹7.0–14.0L'],
+          ['GCCs', 'Common', '₹8.5–15.0L'],
+          ['Remote Employers', 'Limited', '₹8.0–16.0L']
+        ],
+        availability: [
+          ['Intern', 'Moderate; needs basic SQL/Python, cloud familiarity'],
+          ['Fresher', 'Moderate; pipeline maintenance and ETL tasks'],
+          ['Mid', 'Very high demand; cloud warehouse migration'],
+          ['Senior', 'High demand; Principal Data Architect / DataOps Lead']
+        ]
       },
       {
         title: 'AI and Data Scientist',
         description: 'Builds statistical, mathematical, and experimental skills for data-driven intelligence.',
         icon: '📈',
         file: 'ai-and-data-scientist.pdf',
-        available: true
+        available: true,
+        conclusion: 'Highest maths demand (D 8) and hybrid-degree barrier (H 6); lowest fresher entry (A 4). Public track records help offset the barrier.',
+        scores: [4, 4, 8, 7, 9, 4, 6, 6, 7, 9, 7],
+        salary: ['₹5.1 – 14.0 LPA', '₹8.5 LPA', '₹12.0 – 24.0 LPA', 'Base pay + performance incentive + RSUs', 'Glassdoor, AmbitionBox, Unstop'],
+        employerFit: [
+          ['IT Services', 'Selective', '₹4.5–7.0L'],
+          ['Product Cos.', 'Selective', '₹10.0–20.0L'],
+          ['Tech Startups', 'Selective', '₹7.0–15.0L'],
+          ['GCCs', 'Selective', '₹9.0–16.0L'],
+          ['Remote Employers', 'Limited', '₹8.0–18.0L']
+        ],
+        availability: [
+          ['Intern', 'Moderate; favours research or Kaggle proof'],
+          ['Fresher', 'Selective; model evaluation, tuning, data prep'],
+          ['Mid', 'High demand; end-to-end ML deployment'],
+          ['Senior', 'Selective; Principal DS / AI Research Lead']
+        ]
       },
       {
         title: 'Computer Science Foundation',
         description: 'Strengthens core computing concepts, algorithms, and problem-solving foundations.',
         icon: '🧠',
         file: 'computer-science-foundation.pdf',
-        available: true
+        available: true,
+        foundation: true,
+        conclusion: 'Baseline for every track: discrete maths, algorithms, OS, networks, databases. Not scored separately in the source.'
       }
     ]
   }
@@ -153,6 +297,79 @@ function persistStudentValues() {
   };
 }
 
+function renderComparisonTable(roadmap, config) {
+  const scoredCareers = config.roadmaps.filter((item) => !item.foundation);
+  const careerHeaders = scoredCareers
+    .map((career) => `<th scope="col" class="${career === roadmap ? 'is-current' : ''}">${career.title}</th>`)
+    .join('');
+  const criteriaRows = COMPARISON_CRITERIA
+    .map(([code, label, direction], index) => `
+      <tr>
+        <th scope="row"><span class="criterion-code">${code}</span> ${label}<span class="criterion-direction">${direction}</span></th>
+        ${scoredCareers.map((career) => `<td class="${career === roadmap ? 'is-current' : ''}">${career.scores[index]} / 10</td>`).join('')}
+      </tr>
+    `)
+    .join('');
+
+  return `
+    <div class="comparison-table-wrap" role="region" aria-label="${config.label} career comparison scores" tabindex="0">
+      <table class="comparison-table comparison-table--matrix">
+        <caption>${config.label} career comparison scores — 0–10 estimates</caption>
+        <thead><tr><th scope="col">Original criterion</th>${careerHeaders}</tr></thead>
+        <tbody>${criteriaRows}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderCareerDetails(roadmap) {
+  if (roadmap.foundation) {
+    return `
+      <p class="comparison-conclusion">${roadmap.conclusion}</p>
+      <p class="comparison-caveat">This foundation resource is not a scored job role in the supplied report.</p>
+    `;
+  }
+
+  const employerRows = roadmap.employerFit
+    .map(([type, fit, pay]) => `<tr><th scope="row">${type}</th><td>${fit}</td><td>${pay}</td></tr>`)
+    .join('');
+  const availabilityRows = roadmap.availability
+    .map(([level, details]) => `<tr><th scope="row">${level}</th><td>${details}</td></tr>`)
+    .join('');
+
+  return `
+    <p class="comparison-caveat">Research estimates, not official statistics. Higher AI exposure and entry-barrier scores indicate greater exposure and a bigger barrier, respectively.</p>
+    <p class="comparison-conclusion">${roadmap.conclusion}</p>
+    <div class="comparison-table-wrap" role="region" aria-label="${roadmap.title} salary comparison" tabindex="0">
+      <table class="comparison-table">
+        <caption>Salary comparison from the supplied report</caption>
+        <tbody>
+          <tr><th scope="row">Fresher salary (0–2 years)</th><td>${roadmap.salary[0]}</td></tr>
+          <tr><th scope="row">Central fresher estimate</th><td>${roadmap.salary[1]}</td></tr>
+          <tr><th scope="row">Early-to-mid (2–5 years)</th><td>${roadmap.salary[2]}</td></tr>
+          <tr><th scope="row">Pay structure</th><td>${roadmap.salary[3]}</td></tr>
+          <tr><th scope="row">Sources cited</th><td>${roadmap.salary[4]}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="comparison-table-wrap" role="region" aria-label="${roadmap.title} employer fit" tabindex="0">
+      <table class="comparison-table">
+        <caption>Employer fit and fresher CTC as reported</caption>
+        <thead><tr><th scope="col">Employer type</th><th scope="col">Fit</th><th scope="col">Fresher CTC</th></tr></thead>
+        <tbody>${employerRows}</tbody>
+      </table>
+    </div>
+    <div class="comparison-table-wrap" role="region" aria-label="${roadmap.title} role availability" tabindex="0">
+      <table class="comparison-table">
+        <caption>Role availability by career level</caption>
+        <thead><tr><th scope="col">Career level</th><th scope="col">Report notes</th></tr></thead>
+        <tbody>${availabilityRows}</tbody>
+      </table>
+    </div>
+    <p class="comparison-caveat">Employer-category CTC ranges are shown as reported and may exceed the overall fresher salary range.</p>
+  `;
+}
+
 function renderRoadmaps() {
   const config = state.selectedDomain && DOMAIN_CONFIG[state.selectedDomain];
   if (!config) {
@@ -191,8 +408,15 @@ function renderRoadmaps() {
             <h3>${roadmap.title}</h3>
           </div>
           <p>${roadmap.description}</p>
+          <div class="career-comparison">
+            <h4>Detailed career comparison</h4>
+            ${renderComparisonTable(roadmap, config)}
+          </div>
           <div class="roadmap-card-action">
             ${linkTag}
+          </div>
+          <div class="career-details">
+            ${renderCareerDetails(roadmap)}
           </div>
         </article>
       `;

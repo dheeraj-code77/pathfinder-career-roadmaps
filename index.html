@@ -5,17 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Pathfinder helps students explore tailored career roadmaps by degree programme and domain."
+      content="Career Catalyst Club operates under Disha Placement Cell, which is under the Student Technical Council."
     />
-    <title>Pathfinder</title>
+    <meta property="og:title" content="Career Catalyst Club" />
+    <meta property="og:site_name" content="Career Catalyst Club" />
+    <meta
+      property="og:description"
+      content="Career Catalyst Club operates under Disha Placement Cell, which is under the Student Technical Council."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Career Catalyst Club" />
+    <meta
+      name="twitter:description"
+      content="Career Catalyst Club operates under Disha Placement Cell, which is under the Student Technical Council."
+    />
+    <title>Career Catalyst Club | Disha Placement Cell</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="shell">
       <header class="topbar" aria-label="Main header">
-        <div class="brand" aria-label="Pathfinder home">
-          <span class="brand-mark">P</span>
-          <span>Pathfinder</span>
+        <div class="brand" aria-label="Career Catalyst Club under Disha Placement Cell, under the Student Technical Council">
+          <span class="brand-mark">C</span>
+          <span class="brand-copy">
+            <span>Career Catalyst Club</span>
+            <span class="brand-affiliation">Under Disha Placement Cell, Student Technical Council</span>
+          </span>
         </div>
         <div class="header-tag">Career Roadmaps</div>
       </header>
@@ -26,7 +41,7 @@
 
           <div class="step-copy">
             <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
-            <h1>Build your path.</h1>
+            <h1>Career Catalyst Club</h1>
             <p class="supporting">Choose your programme details to discover your career roadmap.</p>
           </div>
 
@@ -115,6 +130,20 @@
             </button>
           </div>
 
+          <aside class="beginner-note" aria-label="Beginner recommendation">
+            <p>
+              If you are a complete beginner, consider starting with CompTIA A+ Core 2 (220-1202) by
+              Professor Messer.
+            </p>
+            <a
+              href="https://www.youtube.com/playlist?list=PLG49S3nxzAnn7PDGQ17m5AYbDRhnW7vOb"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Watch Professor Messer's Core 2 YouTube Playlist
+            </a>
+          </aside>
+
           <div class="action-row back-row">
             <button type="button" class="secondary-button" data-action="back-to-step-1">Back</button>
           </div>
@@ -133,9 +162,20 @@
 
           <div class="selected-domain-pill" id="selected-domain-pill">AICS • 4 ROADMAPS</div>
 
-          <div class="roadmap-grid" id="roadmap-grid" aria-live="polite"></div>
+          <p class="comparison-intro">
+            Scores and career details below are transcribed from the supplied CSDA and AICS research reports.
+            Scores are 0–10 estimates; they are not official statistics or job guarantees.
+          </p>
+          <div class="roadmap-grid comparison-list" id="roadmap-grid" aria-live="polite"></div>
         </section>
       </main>
+
+      <footer class="developer-credit">
+        <p class="credit-title">Designed &amp; Built by Dheeraj Pratap Singh (DS)</p>
+        <p>BS in Artificial Intelligence and Cybersecurity</p>
+        <p>Indian Institute of Technology Patna</p>
+        <p>First Year · First Semester · 2026 Batch</p>
+      </footer>
     </div>
 
     <script src="script.js"></script>
