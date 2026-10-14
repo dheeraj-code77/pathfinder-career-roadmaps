@@ -1,6 +1,6 @@
 :root {
   --bg-deep: #F7F1EA;
-  --bg-mid: rgba(103, 6, 38, 0.06);
+  --bg-mid: rgba(247, 241, 234, 0.9);
   --panel: rgba(247, 241, 234, 0.72);
   --panel-strong: rgba(247, 241, 234, 0.88);
   --panel-bright: rgba(103, 6, 38, 0.04);
@@ -51,6 +51,7 @@ select {
 
 button {
   cursor: pointer;
+  color: inherit;
 }
 
 .shell {
@@ -291,7 +292,7 @@ select:hover {
 .secondary-button {
   min-height: 48px;
   padding: 0.72rem 1rem;
-  background: rgba(103, 6, 38, 0.06);
+  background: var(--bg-deep);
   color: var(--text);
   border-color: var(--border);
 }
@@ -336,7 +337,7 @@ select:hover {
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid var(--border);
-  background: linear-gradient(135deg, rgba(103, 6, 38, 0.08), rgba(247, 241, 234, 0.42));
+  background: var(--bg-deep);
 }
 
 .visual-glow,
@@ -503,7 +504,7 @@ select:hover {
   width: 42px;
   height: 42px;
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(103, 6, 38, 0.06), rgba(103, 6, 38, 0.08));
+  background: var(--bg-deep);
   border: 1px solid var(--border);
   box-shadow: inset 0 1px 0 rgba(247, 241, 234, 0.1);
   font-size: 1.3rem;
@@ -586,7 +587,7 @@ select:hover {
 }
 
 .comparison-table thead th {
-  background: rgba(103, 6, 38, 0.06);
+  background: var(--bg-deep);
   font-weight: 700;
 }
 
@@ -596,7 +597,7 @@ select:hover {
 }
 
 .comparison-table .is-current {
-  background: rgba(103, 6, 38, 0.05);
+  background: var(--bg-deep);
   font-weight: 700;
 }
 
