@@ -30,13 +30,8 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  overflow-x: hidden;
   font-family: Inter, "Segoe UI", Roboto, sans-serif;
-  background:
-    radial-gradient(circle at 10% 0%, rgba(103, 6, 38, 0.08), transparent 30%),
-    radial-gradient(circle at 90% 10%, rgba(232, 216, 208, 0.48), transparent 25%),
-    radial-gradient(circle at 50% 100%, rgba(103, 6, 38, 0.05), transparent 20%),
-    var(--bg-deep);
+  background: var(--bg-deep);
   color: var(--text);
 }
 
@@ -44,7 +39,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: linear-gradient(135deg, rgba(103, 6, 38, 0.025), rgba(232, 216, 208, 0.16));
+  background: none;
   pointer-events: none;
 }
 
@@ -59,9 +54,9 @@ button {
 }
 
 .shell {
-  width: min(100%, 1360px);
+  width: min(100%, 1600px);
   margin: 0 auto;
-  padding: 18px 16px 32px;
+  padding: 14px 20px 24px;
 }
 
 .topbar {
@@ -69,12 +64,12 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 18px 20px;
-  min-height: 72px;
-  margin-bottom: 10px;
+  padding: 14px 20px;
+  min-height: 64px;
+  margin-bottom: 8px;
   border: 1px solid var(--border);
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.58);
+  background: rgba(255, 255, 255, 0.84);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 12px 30px rgba(103, 6, 38, 0.08);
@@ -121,16 +116,16 @@ button {
 }
 
 .content {
-  width: min(100%, 1280px);
+  width: min(100%, 1520px);
   margin: 0 auto;
 }
 
 .step-card {
-  padding: 28px 20px 18px;
+  padding: 22px 24px 18px;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(232, 216, 208, 0.62));
-  box-shadow: 0 20px 48px rgba(103, 6, 38, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(247, 241, 234, 0.94));
+  box-shadow: 0 14px 36px rgba(103, 6, 38, 0.08);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
@@ -317,13 +312,13 @@ select:hover {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 18px;
-  padding: 22px 20px 18px;
+  gap: 14px;
+  padding: 18px 18px 16px;
   text-align: left;
   border-radius: 24px;
   border: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(232, 216, 208, 0.62));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 10px 24px rgba(103, 6, 38, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(247, 241, 234, 0.92));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 8px 20px rgba(103, 6, 38, 0.07);
 }
 
 .domain-card:focus,
@@ -432,7 +427,7 @@ select:hover {
   padding: 0.5rem 0.9rem;
   border-radius: 999px;
   border: 1px solid rgba(232, 216, 208, 0.9);
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.94);
   color: var(--text);
   font-size: 0.74rem;
   letter-spacing: 0.12em;
@@ -486,13 +481,13 @@ select:hover {
 .roadmap-card {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  min-height: 226px;
-  padding: 18px 16px 16px;
+  gap: 12px;
+  min-height: 0;
+  padding: 16px;
   border: 1px solid var(--border);
   border-radius: 20px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(232, 216, 208, 0.58));
-  box-shadow: 0 10px 24px rgba(103, 6, 38, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 241, 234, 0.88));
+  box-shadow: 0 8px 20px rgba(103, 6, 38, 0.07);
 }
 
 .roadmap-card-header {
@@ -558,7 +553,7 @@ select:hover {
   overflow-x: auto;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.96);
   -webkit-overflow-scrolling: touch;
 }
 
@@ -591,7 +586,7 @@ select:hover {
 }
 
 .comparison-table thead th {
-  background: var(--bg-mid);
+  background: rgba(232, 216, 208, 0.42);
   font-weight: 700;
 }
 
@@ -601,7 +596,7 @@ select:hover {
 }
 
 .comparison-table .is-current {
-  background: rgba(232, 216, 208, 0.72);
+  background: rgba(232, 216, 208, 0.36);
   font-weight: 700;
 }
 
@@ -705,6 +700,17 @@ select:hover {
     max-width: 260px;
   }
 
+  .domain-card {
+    gap: 18px;
+    padding: 22px 20px 18px;
+  }
+
+  .roadmap-card {
+    gap: 14px;
+    min-height: 226px;
+    padding: 18px 16px 16px;
+  }
+
   .field-row,
   .domain-grid,
   .roadmap-grid {
@@ -720,6 +726,63 @@ select:hover {
 
   .compact-back {
     width: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .beginner-note {
+    margin-top: 16px;
+    padding: 14px 18px;
+  }
+
+  .roadmap-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .career-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .career-details > p,
+  .career-details .comparison-table-wrap[aria-label$="role availability"] {
+    grid-column: 1 / -1;
+  }
+
+  .career-details .comparison-table {
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .career-details .comparison-table tbody th {
+    width: 42%;
+  }
+
+  .career-details .comparison-table th,
+  .career-details .comparison-table td {
+    padding: 7px 8px;
+    overflow-wrap: anywhere;
+  }
+
+  .comparison-table--matrix {
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .comparison-table--matrix th:first-child {
+    width: 40%;
+  }
+
+  .comparison-table--matrix th:not(:first-child),
+  .comparison-table--matrix td {
+    width: 15%;
+  }
+
+  .comparison-table--matrix th,
+  .comparison-table--matrix td {
+    padding: 7px 8px;
+    overflow-wrap: anywhere;
   }
 }
 
