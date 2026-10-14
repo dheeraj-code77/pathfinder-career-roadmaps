@@ -1,10 +1,10 @@
 :root {
   --bg-deep: #F7F1EA;
-  --bg-mid: #E8D8D0;
-  --panel: rgba(255, 255, 255, 0.72);
-  --panel-strong: rgba(255, 255, 255, 0.88);
-  --panel-bright: rgba(232, 216, 208, 0.74);
-  --border: rgba(232, 216, 208, 0.9);
+  --bg-mid: rgba(103, 6, 38, 0.06);
+  --panel: rgba(247, 241, 234, 0.72);
+  --panel-strong: rgba(247, 241, 234, 0.88);
+  --panel-bright: rgba(103, 6, 38, 0.04);
+  --border: rgba(103, 6, 38, 0.14);
   --border-strong: rgba(103, 6, 38, 0.5);
   --text: #670626;
   --muted: rgba(103, 6, 38, 0.82);
@@ -69,7 +69,7 @@ button {
   margin-bottom: 8px;
   border: 1px solid var(--border);
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.84);
+  background: rgba(247, 241, 234, 0.84);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 12px 30px rgba(103, 6, 38, 0.08);
@@ -102,9 +102,9 @@ button {
   width: 26px;
   height: 26px;
   border-radius: 8px;
-  background: linear-gradient(135deg, rgba(103, 6, 38, 0.12), rgba(232, 216, 208, 0.64));
+  background: linear-gradient(135deg, rgba(103, 6, 38, 0.12), rgba(247, 241, 234, 0.64));
   border: 1px solid rgba(103, 6, 38, 0.24);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 1px 0 rgba(247, 241, 234, 0.18);
 }
 
 .header-tag {
@@ -124,7 +124,7 @@ button {
   padding: 22px 24px 18px;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(247, 241, 234, 0.94));
+  background: linear-gradient(180deg, rgba(247, 241, 234, 0.98), rgba(247, 241, 234, 0.94));
   box-shadow: 0 14px 36px rgba(103, 6, 38, 0.08);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -218,7 +218,7 @@ select {
   padding: 0.82rem 0.95rem;
   border-radius: 14px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(247, 241, 234, 0.94);
   color: var(--text);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
@@ -275,7 +275,7 @@ select:hover {
   padding: 0.82rem 1.2rem;
   border-color: rgba(103, 6, 38, 0.45);
   background: #670626;
-  color: #FFFFFF;
+  color: #F7F1EA;
   font-weight: 700;
   letter-spacing: 0.02em;
   box-shadow: 0 14px 22px rgba(103, 6, 38, 0.16);
@@ -291,9 +291,9 @@ select:hover {
 .secondary-button {
   min-height: 48px;
   padding: 0.72rem 1rem;
-  background: rgba(232, 216, 208, 0.7);
+  background: rgba(103, 6, 38, 0.06);
   color: var(--text);
-  border-color: rgba(232, 216, 208, 0.9);
+  border-color: var(--border);
 }
 
 .back-row {
@@ -317,14 +317,14 @@ select:hover {
   text-align: left;
   border-radius: 24px;
   border: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(247, 241, 234, 0.92));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 8px 20px rgba(103, 6, 38, 0.07);
+  background: linear-gradient(180deg, rgba(247, 241, 234, 0.98), rgba(247, 241, 234, 0.92));
+  box-shadow: inset 0 1px 0 rgba(247, 241, 234, 0.72), 0 8px 20px rgba(103, 6, 38, 0.07);
 }
 
 .domain-card:focus,
 .domain-card:hover {
   border-color: rgba(103, 6, 38, 0.52);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 14px 28px rgba(103, 6, 38, 0.14);
+  box-shadow: inset 0 1px 0 rgba(247, 241, 234, 0.6), 0 14px 28px rgba(103, 6, 38, 0.14);
 }
 
 .card-visual {
@@ -335,8 +335,8 @@ select:hover {
   height: 90px;
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(232, 216, 208, 0.9);
-  background: linear-gradient(135deg, rgba(103, 6, 38, 0.08), rgba(232, 216, 208, 0.42));
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(103, 6, 38, 0.08), rgba(247, 241, 234, 0.42));
 }
 
 .visual-glow,
@@ -359,11 +359,11 @@ select:hover {
 }
 
 .aics-visual .visual-core {
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(103, 6, 38, 0.32));
+  background: radial-gradient(circle, rgba(247, 241, 234, 0.8), rgba(103, 6, 38, 0.32));
 }
 
 .csda-visual .visual-core {
-  background: radial-gradient(circle, rgba(232, 216, 208, 0.8), rgba(103, 6, 38, 0.38));
+  background: radial-gradient(circle, rgba(247, 241, 234, 0.8), rgba(103, 6, 38, 0.38));
 }
 
 .domain-copy {
@@ -426,8 +426,8 @@ select:hover {
   align-items: center;
   padding: 0.5rem 0.9rem;
   border-radius: 999px;
-  border: 1px solid rgba(232, 216, 208, 0.9);
-  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--border);
+  background: rgba(247, 241, 234, 0.94);
   color: var(--text);
   font-size: 0.74rem;
   letter-spacing: 0.12em;
@@ -438,10 +438,10 @@ select:hover {
 .beginner-note {
   margin: 22px 0 0;
   padding: 18px 20px;
-  border: 1px solid rgba(232, 216, 208, 0.92);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: var(--primary);
-  color: #FFFFFF;
+  color: #F7F1EA;
   box-shadow: 0 8px 20px rgba(103, 6, 38, 0.12);
 }
 
@@ -455,13 +455,13 @@ select:hover {
   display: inline-flex;
   min-height: 42px;
   align-items: center;
-  color: #FFFFFF;
+  color: #F7F1EA;
   font-weight: 700;
   text-underline-offset: 3px;
 }
 
 .beginner-note a:focus-visible {
-  outline: 2px solid #FFFFFF;
+  outline: 2px solid #F7F1EA;
   outline-offset: 3px;
 }
 
@@ -486,7 +486,7 @@ select:hover {
   padding: 16px;
   border: 1px solid var(--border);
   border-radius: 20px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 241, 234, 0.88));
+  background: linear-gradient(180deg, rgba(247, 241, 234, 0.98), rgba(247, 241, 234, 0.88));
   box-shadow: 0 8px 20px rgba(103, 6, 38, 0.07);
 }
 
@@ -503,9 +503,9 @@ select:hover {
   width: 42px;
   height: 42px;
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(232, 216, 208, 0.78), rgba(103, 6, 38, 0.08));
-  border: 1px solid rgba(232, 216, 208, 0.9);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(103, 6, 38, 0.06), rgba(103, 6, 38, 0.08));
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(247, 241, 234, 0.1);
   font-size: 1.3rem;
 }
 
@@ -553,7 +553,7 @@ select:hover {
   overflow-x: auto;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(247, 241, 234, 0.96);
   -webkit-overflow-scrolling: touch;
 }
 
@@ -586,7 +586,7 @@ select:hover {
 }
 
 .comparison-table thead th {
-  background: rgba(232, 216, 208, 0.42);
+  background: rgba(103, 6, 38, 0.06);
   font-weight: 700;
 }
 
@@ -596,7 +596,7 @@ select:hover {
 }
 
 .comparison-table .is-current {
-  background: rgba(232, 216, 208, 0.36);
+  background: rgba(103, 6, 38, 0.05);
   font-weight: 700;
 }
 
@@ -647,6 +647,17 @@ select:hover {
   font-weight: 700;
 }
 
+.developer-credit a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.developer-credit a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
 .roadmap-card-action {
   margin-top: auto;
 }
@@ -659,7 +670,7 @@ select:hover {
   padding: 0.7rem 0.9rem;
   border: 1px solid rgba(103, 6, 38, 0.35);
   background: var(--primary);
-  color: #FFFFFF;
+  color: #F7F1EA;
   text-decoration: none;
   font-weight: 700;
   letter-spacing: 0.02em;
