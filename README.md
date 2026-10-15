@@ -7,7 +7,7 @@ Career Catalyst Club operates under Disha Placement Cell, which is under the Stu
 - Three-step journey from student details to domain selection to roadmap library
 - Clean glassmorphism layout with responsive design for desktop and mobile
 - No local storage, cookies, or external APIs for student data
-- Research-based CSDA and AICS career comparisons, with individual roadmap PDF downloads
+- Consolidated CSDA and AICS career comparison tables followed by individual roadmap PDF downloads
 - Accessible labels, keyboard-friendly controls, and reduced-motion styles
 
 ## Local preview

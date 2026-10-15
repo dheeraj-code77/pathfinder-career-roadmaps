@@ -496,22 +496,71 @@ select:hover {
   font-size: 0.94rem;
 }
 
-.career-comparison {
+.career-comparison-section {
   display: grid;
-  gap: 12px;
-  align-content: start;
+  gap: 20px;
+  margin-bottom: 26px;
 }
 
-.career-details {
-  display: grid;
-  gap: 12px;
-  align-content: start;
+.comparison-section-heading,
+.roadmap-section-heading {
+  margin: 0;
+  color: var(--text);
 }
 
-.career-comparison h4 {
-  margin: 4px 0 0;
+.comparison-dataset {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.comparison-dataset h4 {
+  margin: 0;
   color: var(--text);
   font-size: 1rem;
+}
+
+.comparison-secondary {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9em;
+}
+
+.career-notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 12px;
+}
+
+.career-note {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--panel-strong);
+}
+
+.career-note h4,
+.career-note p {
+  margin: 0;
+}
+
+.career-note h4 {
+  color: var(--text);
+  font-size: 0.94rem;
+}
+
+.career-note p {
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: 0.86rem;
+}
+
+.career-note .comparison-caveat {
+  padding-left: 8px;
+  border-left: 2px solid var(--border-strong);
 }
 
 .comparison-table-wrap {
@@ -715,31 +764,6 @@ select:hover {
   .roadmap-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
-  }
-
-  .career-details {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .career-details > p,
-  .career-details .comparison-table-wrap[aria-label$="role availability"] {
-    grid-column: 1 / -1;
-  }
-
-  .career-details .comparison-table {
-    min-width: 0;
-    table-layout: fixed;
-  }
-
-  .career-details .comparison-table tbody th {
-    width: 42%;
-  }
-
-  .career-details .comparison-table th,
-  .career-details .comparison-table td {
-    padding: 7px 8px;
-    overflow-wrap: anywhere;
   }
 
   .comparison-table--matrix {

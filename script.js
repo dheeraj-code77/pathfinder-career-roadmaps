@@ -245,6 +245,7 @@ const specializationInput = document.getElementById('specialization');
 const roadmapHeading = document.getElementById('roadmap-heading');
 const selectedDomainPill = document.getElementById('selected-domain-pill');
 const roadmapGrid = document.getElementById('roadmap-grid');
+const careerComparison = document.getElementById('career-comparison');
 
 function setStep(stepNumber) {
   state.currentStep = stepNumber;
@@ -297,76 +298,118 @@ function persistStudentValues() {
   };
 }
 
-function renderComparisonTable(roadmap, config) {
-  const scoredCareers = config.roadmaps.filter((item) => !item.foundation);
-  const careerHeaders = scoredCareers
-    .map((career) => `<th scope="col" class="${career === roadmap ? 'is-current' : ''}">${career.title}</th>`)
+function renderComparisonMatrix(config, caption, regionLabel, rowLabels, getValue) {
+  const careerHeaders = config.roadmaps
+    .map((career) => `<th scope="col">${career.title}</th>`)
     .join('');
-  const criteriaRows = COMPARISON_CRITERIA
-    .map(([code, label, direction], index) => `
-      <tr>
-        <th scope="row"><span class="criterion-code">${code}</span> ${label}<span class="criterion-direction">${direction}</span></th>
-        ${scoredCareers.map((career) => `<td class="${career === roadmap ? 'is-current' : ''}">${career.scores[index]} / 10</td>`).join('')}
-      </tr>
-    `)
+  const rows = rowLabels
+    .map((row, index) => {
+      const [label, direction, code] = Array.isArray(row) ? row : [row, '', ''];
+      const rowLabel = code
+        ? `<span class="criterion-code">${code}</span> ${label}<span class="criterion-direction">${direction}</span>`
+        : label;
+      const cells = config.roadmaps
+        .map((career) => `<td>${getValue(career, index)}</td>`)
+        .join('');
+      return `<tr><th scope="row">${rowLabel}</th>${cells}</tr>`;
+    })
     .join('');
 
   return `
-    <div class="comparison-table-wrap" role="region" aria-label="${config.label} career comparison scores" tabindex="0">
+    <div class="comparison-table-wrap" role="region" aria-label="${regionLabel}" tabindex="0">
       <table class="comparison-table comparison-table--matrix">
-        <caption>${config.label} career comparison scores — 0–10 estimates</caption>
-        <thead><tr><th scope="col">Original criterion</th>${careerHeaders}</tr></thead>
-        <tbody>${criteriaRows}</tbody>
+        <caption>${caption}</caption>
+        <thead><tr><th scope="col">Career / criterion</th>${careerHeaders}</tr></thead>
+        <tbody>${rows}</tbody>
       </table>
     </div>
   `;
 }
 
-function renderCareerDetails(roadmap) {
-  if (roadmap.foundation) {
-    return `
-      <p class="comparison-conclusion">${roadmap.conclusion}</p>
-      <p class="comparison-caveat">This foundation resource is not a scored job role in the supplied report.</p>
-    `;
-  }
-
-  const employerRows = roadmap.employerFit
-    .map(([type, fit, pay]) => `<tr><th scope="row">${type}</th><td>${fit}</td><td>${pay}</td></tr>`)
-    .join('');
-  const availabilityRows = roadmap.availability
-    .map(([level, details]) => `<tr><th scope="row">${level}</th><td>${details}</td></tr>`)
+function renderCareerComparisons(config) {
+  const scoreRows = COMPARISON_CRITERIA.map(([code, label, direction]) => [label, direction, code]);
+  const salaryRows = [
+    'Fresher salary (0–2 years)',
+    'Central fresher estimate',
+    'Early-to-mid (2–5 years)',
+    'Pay structure',
+    'Sources cited'
+  ];
+  const employerTypes = [...new Set(config.roadmaps.reduce(
+    (types, career) => types.concat((career.employerFit || []).map(([type]) => type)),
+    []
+  ))];
+  const careerLevels = [...new Set(config.roadmaps.reduce(
+    (levels, career) => levels.concat((career.availability || []).map(([level]) => level)),
+    []
+  ))];
+  const foundationCareer = config.roadmaps.find((career) => career.foundation);
+  const careerNotes = config.roadmaps
+    .map((career) => `
+      <article class="career-note">
+        <h4>${career.title}</h4>
+        <p>${career.conclusion}</p>
+        ${career.foundation ? '<p class="comparison-caveat">This foundation resource is not a scored job role in the supplied report.</p>' : ''}
+      </article>
+    `)
     .join('');
 
   return `
-    <p class="comparison-caveat">Research estimates, not official statistics. Higher AI exposure and entry-barrier scores indicate greater exposure and a bigger barrier, respectively.</p>
-    <p class="comparison-conclusion">${roadmap.conclusion}</p>
-    <div class="comparison-table-wrap" role="region" aria-label="${roadmap.title} salary comparison" tabindex="0">
-      <table class="comparison-table">
-        <caption>Salary comparison from the supplied report</caption>
-        <tbody>
-          <tr><th scope="row">Fresher salary (0–2 years)</th><td>${roadmap.salary[0]}</td></tr>
-          <tr><th scope="row">Central fresher estimate</th><td>${roadmap.salary[1]}</td></tr>
-          <tr><th scope="row">Early-to-mid (2–5 years)</th><td>${roadmap.salary[2]}</td></tr>
-          <tr><th scope="row">Pay structure</th><td>${roadmap.salary[3]}</td></tr>
-          <tr><th scope="row">Sources cited</th><td>${roadmap.salary[4]}</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="comparison-table-wrap" role="region" aria-label="${roadmap.title} employer fit" tabindex="0">
-      <table class="comparison-table">
-        <caption>Employer fit and fresher CTC as reported</caption>
-        <thead><tr><th scope="col">Employer type</th><th scope="col">Fit</th><th scope="col">Fresher CTC</th></tr></thead>
-        <tbody>${employerRows}</tbody>
-      </table>
-    </div>
-    <div class="comparison-table-wrap" role="region" aria-label="${roadmap.title} role availability" tabindex="0">
-      <table class="comparison-table">
-        <caption>Role availability by career level</caption>
-        <thead><tr><th scope="col">Career level</th><th scope="col">Report notes</th></tr></thead>
-        <tbody>${availabilityRows}</tbody>
-      </table>
-    </div>
-    <p class="comparison-caveat">Employer-category CTC ranges are shown as reported and may exceed the overall fresher salary range.</p>
+    <h3 class="comparison-section-heading">Consolidated career comparison</h3>
+    <section class="comparison-dataset" aria-labelledby="score-comparison-heading">
+      <h4 id="score-comparison-heading">Career comparison scores — 0–10 estimates</h4>
+      ${renderComparisonMatrix(
+        config,
+        `${config.label} career comparison scores — 0–10 estimates`,
+        `${config.label} career comparison scores`,
+        scoreRows,
+        (career, index) => career.scores ? `${career.scores[index]} / 10` : '—'
+      )}
+      ${foundationCareer ? '<p class="comparison-caveat">The supplied report does not score the Computer Science Foundation resource separately.</p>' : ''}
+    </section>
+    <section class="comparison-dataset" aria-labelledby="salary-comparison-heading">
+      <h4 id="salary-comparison-heading">Salary comparison from the supplied report</h4>
+      ${renderComparisonMatrix(
+        config,
+        'Salary comparison from the supplied report',
+        `${config.label} salary comparison`,
+        salaryRows,
+        (career, index) => career.salary ? career.salary[index] : '—'
+      )}
+      ${foundationCareer ? '<p class="comparison-caveat">Salary data was not reported for the Computer Science Foundation resource.</p>' : ''}
+    </section>
+    <section class="comparison-dataset" aria-labelledby="employer-fit-heading">
+      <h4 id="employer-fit-heading">Employer fit and fresher CTC as reported</h4>
+      ${renderComparisonMatrix(
+        config,
+        'Employer fit and fresher CTC as reported',
+        `${config.label} employer fit and fresher CTC`,
+        employerTypes,
+        (career, index) => {
+          const entry = (career.employerFit || []).find(([type]) => type === employerTypes[index]);
+          return entry ? `${entry[1]}<span class="comparison-secondary">${entry[2]}</span>` : '—';
+        }
+      )}
+      <p class="comparison-caveat">Employer-category CTC ranges are shown as reported and may exceed the overall fresher salary range.</p>
+    </section>
+    <section class="comparison-dataset" aria-labelledby="availability-heading">
+      <h4 id="availability-heading">Role availability by career level</h4>
+      ${renderComparisonMatrix(
+        config,
+        'Role availability by career level',
+        `${config.label} role availability by career level`,
+        careerLevels,
+        (career, index) => {
+          const entry = (career.availability || []).find(([level]) => level === careerLevels[index]);
+          return entry ? entry[1] : '—';
+        }
+      )}
+    </section>
+    <section class="comparison-dataset" aria-labelledby="career-notes-heading">
+      <h4 id="career-notes-heading">Career conclusions from the supplied report</h4>
+      <div class="career-notes">${careerNotes}</div>
+      <p class="comparison-caveat">Research estimates, not official statistics. Higher AI exposure and entry-barrier scores indicate greater exposure and a bigger barrier, respectively.</p>
+    </section>
   `;
 }
 
@@ -374,6 +417,7 @@ function renderRoadmaps() {
   const config = state.selectedDomain && DOMAIN_CONFIG[state.selectedDomain];
   if (!config) {
     roadmapGrid.innerHTML = '';
+    careerComparison.innerHTML = '';
     selectedDomainPill.textContent = 'Select a domain';
     roadmapHeading.textContent = 'Select a domain';
     return;
@@ -381,6 +425,7 @@ function renderRoadmaps() {
 
   roadmapHeading.textContent = config.title;
   selectedDomainPill.textContent = `${config.label} • ${config.roadmapCount} ROADMAPS`;
+  careerComparison.innerHTML = renderCareerComparisons(config);
 
   roadmapGrid.innerHTML = config.roadmaps
     .map((roadmap) => {
@@ -400,23 +445,10 @@ function renderRoadmaps() {
 
       return `
         <article class="roadmap-card" aria-label="${roadmap.title}">
-          <div class="roadmap-card-header">
-            <span class="roadmap-icon" aria-hidden="true">${roadmap.icon}</span>
-            <span class="roadmap-domain-tag">${config.label}</span>
-          </div>
-          <div>
-            <h3>${roadmap.title}</h3>
-          </div>
+          <h3>${roadmap.title}</h3>
           <p>${roadmap.description}</p>
-          <div class="career-comparison">
-            <h4>Detailed career comparison</h4>
-            ${renderComparisonTable(roadmap, config)}
-          </div>
           <div class="roadmap-card-action">
             ${linkTag}
-          </div>
-          <div class="career-details">
-            ${renderCareerDetails(roadmap)}
           </div>
         </article>
       `;
