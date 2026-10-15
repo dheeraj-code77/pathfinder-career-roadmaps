@@ -135,6 +135,11 @@ button {
   display: none;
 }
 
+#domain-selection {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+}
+
 .step-copy {
   margin-bottom: 20px;
 }
@@ -323,32 +328,33 @@ h2 {
 }
 
 .beginner-note {
-  margin: 22px 0 0;
-  padding: 18px 20px;
+  margin: 0 0 24px;
+  padding: 16px 20px;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  background: var(--primary);
-  color: #F7F1EA;
-  box-shadow: 0 8px 20px rgba(103, 6, 38, 0.12);
+  background: #FFFFFF;
+  color: #3B252D;
+  box-shadow: 0 8px 20px rgba(103, 6, 38, 0.06);
 }
 
 .beginner-note p {
-  margin: 0 0 10px;
+  max-width: 80ch;
+  margin: 0 0 8px;
   line-height: 1.55;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .beginner-note a {
   display: inline-flex;
   min-height: 42px;
   align-items: center;
-  color: #F7F1EA;
+  color: var(--primary);
   font-weight: 700;
   text-underline-offset: 3px;
 }
 
 .beginner-note a:focus-visible {
-  outline: 2px solid #F7F1EA;
+  outline: 2px solid var(--primary);
   outline-offset: 3px;
 }
 
@@ -677,11 +683,6 @@ h2 {
 }
 
 @media (min-width: 1200px) {
-  .beginner-note {
-    margin-top: 16px;
-    padding: 14px 18px;
-  }
-
   .roadmap-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
