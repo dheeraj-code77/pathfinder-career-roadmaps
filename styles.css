@@ -65,8 +65,8 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 14px 20px;
-  min-height: 64px;
+  padding: 16px 24px;
+  min-height: 76px;
   margin-bottom: 8px;
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -89,10 +89,15 @@ button {
   gap: 2px;
 }
 
+.brand-copy > span:first-child {
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
 .brand-affiliation {
   max-width: 430px;
   color: var(--muted);
-  font-size: 0.7rem;
+  font-size: 0.74rem;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -100,8 +105,8 @@ button {
 .brand-mark {
   display: inline-grid;
   place-items: center;
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
   border-radius: 8px;
   background: linear-gradient(135deg, rgba(103, 6, 38, 0.12), rgba(247, 241, 234, 0.64));
   border: 1px solid rgba(103, 6, 38, 0.24);
@@ -620,21 +625,22 @@ h2 {
 
 .roadmap-card-actions {
   display: grid;
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 16px;
   margin-top: auto;
 }
 
 .roadmap-card-actions .roadmap-card-action {
   display: grid;
-  gap: 6px;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
   margin-top: 0;
 }
 
-.roadmap-card-actions .pdf-link {
-  width: 100%;
-}
-
 .roadmap-link-note {
+  max-width: 42ch;
   margin: 0;
   color: var(--muted);
   font-size: 0.74rem !important;
@@ -646,7 +652,12 @@ h2 {
   align-items: center;
   justify-content: center;
   min-height: 44px;
-  padding: 0.7rem 0.9rem;
+  width: fit-content;
+  min-width: min(250px, 100%);
+  max-width: 100%;
+  padding: 0.68rem 1rem;
+  text-align: center;
+  line-height: 1.3;
   border: 1px solid rgba(103, 6, 38, 0.35);
   background: var(--primary);
   color: #F7F1EA;
@@ -679,8 +690,8 @@ h2 {
   }
 
   .topbar {
-    min-height: 64px;
-    padding: 14px 16px;
+    min-height: 72px;
+    padding: 14px 18px;
   }
 
   .header-tag {
@@ -698,6 +709,10 @@ h2 {
 
   .brand-affiliation {
     max-width: 260px;
+  }
+
+  .brand-copy > span:first-child {
+    font-size: 1.04rem;
   }
 
   .domain-card {
@@ -756,6 +771,13 @@ h2 {
   }
 }
 
+@media (max-width: 640px) {
+  .roadmap-card-actions {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
 @media (max-width: 460px) {
   .brand {
     font-size: 0.98rem;
@@ -766,6 +788,16 @@ h2 {
     font-size: 0.68rem;
   }
 
+  .topbar {
+    min-height: 68px;
+    padding: 12px 14px;
+  }
+
+  .brand-mark {
+    width: 28px;
+    height: 28px;
+  }
+
   .header-tag {
     display: none;
   }
@@ -774,9 +806,12 @@ h2 {
     justify-content: stretch;
   }
 
-  .primary-button,
-  .pdf-link {
+  .primary-button {
     width: 100%;
+  }
+
+  .roadmap-card-actions .pdf-link {
+    min-width: min(250px, 100%);
   }
 
   .secondary-button {
