@@ -36,61 +36,20 @@
       </header>
 
       <main class="content" aria-live="polite">
-        <section class="step-card active" id="step-1" data-step="1">
-          <div class="progress-label">STEP 01 OF 03</div>
-
-          <div class="step-copy">
-            <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
-            <h1>Career Catalyst Club</h1>
-            <p class="supporting">Choose your programme details to discover your career roadmap.</p>
-          </div>
-
-          <form id="student-form" novalidate>
-            <div class="field-group">
-              <label for="full-name">Full Name</label>
-              <input id="full-name" name="fullName" type="text" autocomplete="name" required />
-              <p class="field-error" id="full-name-error" aria-live="polite"></p>
-            </div>
-
-            <div class="field-row">
-              <div class="field-group">
-                <label for="course">Course</label>
-                <select id="course" name="course" required>
-                  <option value="">Select your course</option>
-                  <option value="BS">BS</option>
-                  <option value="MS">MS</option>
-                  <option value="BS-MS">BS-MS</option>
-                </select>
-                <p class="field-error" id="course-error" aria-live="polite"></p>
-              </div>
-
-              <div class="field-group">
-                <label for="specialization">Specialization</label>
-                <select id="specialization" name="specialization" required>
-                  <option value="">Select a specialization</option>
-                  <option value="Artificial Intelligence and Cybersecurity">
-                    Artificial Intelligence and Cybersecurity
-                  </option>
-                  <option value="Computer Science and Data Analytics">
-                    Computer Science and Data Analytics
-                  </option>
-                </select>
-                <p class="field-error" id="specialization-error" aria-live="polite"></p>
-              </div>
-            </div>
-
-            <p class="privacy-note">
-              Student information stays in memory only and is not stored, transmitted, or retained.
+        <section class="step-card active" id="domain-selection">
+          <aside class="beginner-note" aria-label="Beginner recommendation">
+            <p>
+              If you are a complete beginner, consider starting with CompTIA A+ Core 2 (220-1202) by
+              Professor Messer.
             </p>
-
-            <div class="action-row single-action">
-              <button type="submit" class="primary-button">Continue</button>
-            </div>
-          </form>
-        </section>
-
-        <section class="step-card" id="step-2" data-step="2" hidden>
-          <div class="progress-label">STEP 02 OF 03</div>
+            <a
+              href="https://www.youtube.com/playlist?list=PLG49S3nxzAnn7PDGQ17m5AYbDRhnW7vOb"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Watch Professor Messer's Core 2 YouTube Playlist
+            </a>
+          </aside>
 
           <div class="step-copy narrow-copy">
             <p class="eyebrow">DISCOVER YOUR DIRECTION</p>
@@ -130,34 +89,15 @@
             </button>
           </div>
 
-          <aside class="beginner-note" aria-label="Beginner recommendation">
-            <p>
-              If you are a complete beginner, consider starting with CompTIA A+ Core 2 (220-1202) by
-              Professor Messer.
-            </p>
-            <a
-              href="https://www.youtube.com/playlist?list=PLG49S3nxzAnn7PDGQ17m5AYbDRhnW7vOb"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Watch Professor Messer's Core 2 YouTube Playlist
-            </a>
-          </aside>
-
-          <div class="action-row back-row">
-            <button type="button" class="secondary-button" data-action="back-to-step-1">Back</button>
-          </div>
         </section>
 
-        <section class="step-card" id="step-3" data-step="3" hidden>
-          <div class="progress-label">STEP 03 OF 03</div>
-
+        <section class="step-card" id="roadmap-selection" hidden>
           <div class="step-headline-row">
             <div class="step-copy compact-copy">
               <p class="eyebrow">ROADMAP LIBRARY</p>
               <h2 id="roadmap-heading">Select a domain</h2>
             </div>
-            <button type="button" class="secondary-button compact-back" data-action="back-to-step-2">Back</button>
+            <button type="button" class="secondary-button compact-back" data-action="back-to-domains">Back</button>
           </div>
 
           <div class="selected-domain-pill" id="selected-domain-pill">AICS • 4 ROADMAPS</div>

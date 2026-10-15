@@ -135,15 +135,6 @@ button {
   display: none;
 }
 
-.progress-label {
-  margin: 0 0 18px;
-  font-size: 0.76rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--primary);
-  opacity: 0.8;
-}
-
 .step-copy {
   margin-bottom: 20px;
 }
@@ -183,76 +174,6 @@ h2 {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.6;
-}
-
-#student-form {
-  width: min(100%, 960px);
-  margin-top: 22px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.field-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.field-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-label {
-  display: inline-block;
-  color: var(--soft);
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-input,
-select {
-  width: 100%;
-  min-height: 52px;
-  padding: 0.82rem 0.95rem;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: rgba(247, 241, 234, 0.94);
-  color: var(--text);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-input::placeholder {
-  color: var(--text);
-}
-
-input:focus,
-select:focus,
-button:focus,
-a:focus {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-input:hover,
-select:hover {
-  border-color: rgba(103, 6, 38, 0.38);
-}
-
-.field-error {
-  min-height: 18px;
-  margin: 0;
-  color: var(--error);
-  font-size: 0.8rem;
-}
-
-.privacy-note {
-  margin: 18px 0 22px;
-  color: var(--text);
-  font-size: 0.78rem;
-  line-height: 1.5;
 }
 
 .action-row {

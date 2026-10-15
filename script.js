@@ -223,80 +223,15 @@ const DOMAIN_CONFIG = {
 };
 
 const state = {
-  currentStep: 1,
-  selectedDomain: null,
-  formValues: {
-    fullName: '',
-    course: '',
-    specialization: ''
-  }
+  selectedDomain: null
 };
 
-const stepNodes = {
-  step1: document.getElementById('step-1'),
-  step2: document.getElementById('step-2'),
-  step3: document.getElementById('step-3')
-};
-
-const form = document.getElementById('student-form');
-const fullNameInput = document.getElementById('full-name');
-const courseInput = document.getElementById('course');
-const specializationInput = document.getElementById('specialization');
+const domainSelection = document.getElementById('domain-selection');
+const roadmapSelection = document.getElementById('roadmap-selection');
 const roadmapHeading = document.getElementById('roadmap-heading');
 const selectedDomainPill = document.getElementById('selected-domain-pill');
 const roadmapGrid = document.getElementById('roadmap-grid');
 const careerComparison = document.getElementById('career-comparison');
-
-function setStep(stepNumber) {
-  state.currentStep = stepNumber;
-  const steps = [stepNodes.step1, stepNodes.step2, stepNodes.step3];
-
-  steps.forEach((step) => {
-    const isMatch = Number(step.dataset.step) === stepNumber;
-    step.hidden = !isMatch;
-    step.classList.toggle('active', isMatch);
-  });
-}
-
-function restoreFormValues() {
-  fullNameInput.value = state.formValues.fullName;
-  courseInput.value = state.formValues.course;
-  specializationInput.value = state.formValues.specialization;
-}
-
-function validateForm() {
-  const errors = {
-    fullName: '',
-    course: '',
-    specialization: ''
-  };
-
-  if (!fullNameInput.value.trim()) {
-    errors.fullName = 'Please enter your full name.';
-  }
-
-  if (!courseInput.value) {
-    errors.course = 'Please select your course.';
-  }
-
-  if (!specializationInput.value) {
-    errors.specialization = 'Please select your specialization.';
-  }
-
-  document.getElementById('full-name-error').textContent = errors.fullName;
-  document.getElementById('course-error').textContent = errors.course;
-  document.getElementById('specialization-error').textContent = errors.specialization;
-
-  return !Object.values(errors).some(Boolean);
-}
-
-function persistStudentValues() {
-  state.formValues = {
-    fullName: fullNameInput.value.trim(),
-    course: courseInput.value,
-    specialization: specializationInput.value
-  };
-}
 
 function renderComparisonMatrix(config, caption, regionLabel, rowLabels, getValue) {
   const careerHeaders = config.roadmaps
@@ -456,53 +391,25 @@ function renderRoadmaps() {
     .join('');
 }
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  persistStudentValues();
-
-  if (!validateForm()) {
-    return;
-  }
-
-  setStep(2);
-});
-
 document.querySelectorAll('.domain-card').forEach((button) => {
   button.addEventListener('click', () => {
     state.selectedDomain = button.dataset.domain;
-    setStep(3);
     renderRoadmaps();
+    domainSelection.hidden = true;
+    roadmapSelection.hidden = false;
   });
 });
 
 document.querySelectorAll('[data-action]').forEach((button) => {
   button.addEventListener('click', () => {
     const action = button.dataset.action;
-    if (action === 'back-to-step-1') {
-      setStep(1);
-      restoreFormValues();
-    }
-
-    if (action === 'back-to-step-2') {
-      setStep(2);
+    if (action === 'back-to-domains') {
+      state.selectedDomain = null;
+      renderRoadmaps();
+      roadmapSelection.hidden = true;
+      domainSelection.hidden = false;
     }
   });
 });
 
-fullNameInput.addEventListener('input', () => {
-  document.getElementById('full-name-error').textContent = '';
-  persistStudentValues();
-});
-
-courseInput.addEventListener('change', () => {
-  document.getElementById('course-error').textContent = '';
-  persistStudentValues();
-});
-
-specializationInput.addEventListener('change', () => {
-  document.getElementById('specialization-error').textContent = '';
-  persistStudentValues();
-});
-
-restoreFormValues();
-setStep(1);
+renderRoadmaps();
