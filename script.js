@@ -23,6 +23,7 @@ const DOMAIN_CONFIG = {
         description: 'Builds defensive security habits and modern protection strategies for systems and networks.',
         icon: '🛡️',
         file: 'cyber-security-specialist.pdf',
+        interactiveUrl: 'https://roadmap.sh/cyber-security',
         available: true,
         conclusion: 'Low AI exposure (F 3) and strong demand (I 8); certifications and hands-on lab proof (J 8) help bypass degree filters.',
         scores: [7, 6, 3, 4, 8, 3, 5, 5, 8, 8, 8],
@@ -46,6 +47,7 @@ const DOMAIN_CONFIG = {
         description: 'Explores systems, models, inference, and practical AI engineering workflows.',
         icon: '🤖',
         file: 'ai-engineer.pdf',
+        interactiveUrl: 'https://roadmap.sh/ai-engineer',
         available: true,
         conclusion: 'Top growth (E 10) and demand (I 9) with Low AI exposure (F 3); a deployed RAG/agent project is the key proof (J 9); fresher entry is Moderate (A 5).',
         scores: [5, 4, 7, 8, 10, 3, 5, 7, 9, 9, 8],
@@ -69,6 +71,7 @@ const DOMAIN_CONFIG = {
         description: 'Connects security, automation, and delivery across modern engineering operations.',
         icon: '🔐',
         file: 'devsecops-engineer.pdf',
+        interactiveUrl: 'https://roadmap.sh/devsecops',
         available: true,
         conclusion: 'Lowest fresher entry in AI-CS (A 4); freshers usually start in junior DevOps or cloud roles. Growth is Very High (E 9), AI exposure Low (F 3).',
         scores: [4, 4, 3, 8, 9, 3, 5, 7, 8, 8, 8],
@@ -92,6 +95,7 @@ const DOMAIN_CONFIG = {
         description: 'Covers the foundations of connectivity, protocols, routing, and internet infrastructure.',
         icon: '🌐',
         file: 'network-engineer.pdf',
+        interactiveUrl: 'https://roadmap.sh/network-engineer',
         available: true,
         conclusion: 'Easiest fresher entry in AI-CS (A 8) and lowest maths (C 2); growth is lower (E 6) and AI exposure Moderate (F 5). CCNA-type certs are strong credentials.',
         scores: [8, 7, 2, 3, 6, 5, 4, 4, 6, 6, 6],
@@ -115,13 +119,14 @@ const DOMAIN_CONFIG = {
   CSDA: {
     label: 'CSDA',
     title: 'Computer Science and Data Analytics',
-    roadmapCount: 4,
+    roadmapCount: 5,
     roadmaps: [
       {
         title: 'Data Analyst',
         description: 'Focuses on understanding data patterns and turning raw information into insight.',
         icon: '📊',
         file: 'data-analyst.pdf',
+        interactiveUrl: 'https://roadmap.sh/data-analyst',
         available: true,
         conclusion: 'Easiest fresher entry in CSDA (A 8) with Moderate AI exposure (F 6); portfolio proof matters (J 8), transferability is high (K 8).',
         scores: [8, 7, 6, 5, 7, 6, 4, 7, 7, 8, 8],
@@ -145,6 +150,7 @@ const DOMAIN_CONFIG = {
         description: 'Covers the front-end and back-end foundations behind modern web applications.',
         icon: '💻',
         file: 'full-stack-developer.pdf',
+        interactiveUrl: 'https://roadmap.sh/full-stack',
         available: true,
         conclusion: 'Largest entry-level hiring pool (A 7, I 8); portfolio is decisive (J 9) and coding intensity is highest (D 9); AI exposure is Moderate (F 5).',
         scores: [7, 6, 3, 9, 8, 5, 4, 8, 8, 9, 9],
@@ -168,6 +174,7 @@ const DOMAIN_CONFIG = {
         description: 'Designs data pipelines, systems, and foundations for reliable data flow.',
         icon: '🧰',
         file: 'data-engineer.pdf',
+        interactiveUrl: 'https://roadmap.sh/data-engineer',
         available: true,
         conclusion: 'Very High growth (E 9) and Low AI exposure (F 3); fresher entry is Moderate (A 5) and the learning curve is mid-level (B 5).',
         scores: [5, 5, 5, 8, 9, 3, 5, 6, 8, 8, 8],
@@ -191,6 +198,7 @@ const DOMAIN_CONFIG = {
         description: 'Builds statistical, mathematical, and experimental skills for data-driven intelligence.',
         icon: '📈',
         file: 'ai-and-data-scientist.pdf',
+        interactiveUrl: 'https://roadmap.sh/ai-data-scientist',
         available: true,
         conclusion: 'Highest maths demand (C 8) and hybrid-degree barrier (G 6); lowest fresher entry (A 4). Public track records help offset the barrier.',
         scores: [4, 4, 8, 7, 9, 4, 6, 6, 7, 9, 7],
@@ -208,6 +216,16 @@ const DOMAIN_CONFIG = {
           ['Mid', 'High demand; end-to-end ML deployment'],
           ['Senior', 'Selective; Principal DS / AI Research Lead']
         ]
+      },
+      {
+        title: 'Computer Science Foundation',
+        description: 'Strengthens core computing concepts, algorithms, and problem-solving foundations.',
+        icon: '🧠',
+        file: 'computer-science-foundation.pdf',
+        interactiveUrl: 'https://roadmap.sh/computer-science',
+        available: true,
+        foundation: true,
+        conclusion: 'Baseline for every track: discrete maths, algorithms, OS, networks, databases. Not scored separately in the source.'
       }
     ]
   }
@@ -354,31 +372,41 @@ function renderRoadmaps() {
   careerComparison.innerHTML = renderCareerComparisons(config);
 
   roadmapGrid.innerHTML = config.roadmaps
-    .map((roadmap) => {
-      const linkTag = roadmap.available
-        ? `
-          <a
-            class="pdf-link"
-            href="./public/pdfs/${roadmap.file}"
-            target="_blank"
-            rel="noreferrer"
-            download
-          >
-            Open PDF
-          </a>
-        `
-        : '<button type="button" class="pdf-link unavailable" disabled aria-disabled="true">PDF coming soon</button>';
-
-      return `
+    .map((roadmap) => `
         <article class="roadmap-card" aria-label="${roadmap.title}">
           <h3>${roadmap.title}</h3>
           <p>${roadmap.description}</p>
-          <div class="roadmap-card-action">
-            ${linkTag}
+          <div class="roadmap-card-actions">
+            <div class="roadmap-card-action">
+              <a
+                class="pdf-link"
+                href="./public/pdfs/${roadmap.file}"
+                download="${roadmap.file}"
+              >
+                Download Offline Roadmap
+              </a>
+              <p class="roadmap-link-note">
+                Downloads the roadmap as a PDF to your device. External resource links may not work when viewing the downloaded file offline.
+              </p>
+            </div>
+            ${roadmap.interactiveUrl ? `
+              <div class="roadmap-card-action">
+                <a
+                  class="pdf-link"
+                  href="${roadmap.interactiveUrl}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Go to Interactive Roadmap
+                </a>
+                <p class="roadmap-link-note">
+                  An internet connection is required to access the interactive roadmap and its learning resource links.
+                </p>
+              </div>
+            ` : ''}
           </div>
         </article>
-      `;
-    })
+      `)
     .join('');
 }
 
