@@ -115,7 +115,7 @@ const DOMAIN_CONFIG = {
   CSDA: {
     label: 'CSDA',
     title: 'Computer Science and Data Analytics',
-    roadmapCount: 5,
+    roadmapCount: 4,
     roadmaps: [
       {
         title: 'Data Analyst',
@@ -208,15 +208,6 @@ const DOMAIN_CONFIG = {
           ['Mid', 'High demand; end-to-end ML deployment'],
           ['Senior', 'Selective; Principal DS / AI Research Lead']
         ]
-      },
-      {
-        title: 'Computer Science Foundation',
-        description: 'Strengthens core computing concepts, algorithms, and problem-solving foundations.',
-        icon: '🧠',
-        file: 'computer-science-foundation.pdf',
-        available: true,
-        foundation: true,
-        conclusion: 'Baseline for every track: discrete maths, algorithms, OS, networks, databases. Not scored separately in the source.'
       }
     ]
   }
