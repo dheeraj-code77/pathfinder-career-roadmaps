@@ -4,10 +4,11 @@ Career Catalyst Club operates under Disha Placement Cell, which is under the Stu
 
 ## Features
 
-- Three-step journey from student details to domain selection to roadmap library
+- Direct landing page with a Professor Messer beginner recommendation and an optional Computer Science Foundation prerequisite
+- Four AICS and four CSDA career roadmaps, each with consolidated comparison information and matching PDF downloads
 - Clean glassmorphism layout with responsive design for desktop and mobile
 - No local storage, cookies, or external APIs for student data
-- Consolidated CSDA and AICS career comparison tables followed by individual roadmap PDF downloads
+- Consolidated CSDA and AICS career comparison tables followed by four specialization cards per domain
 - Accessible labels, keyboard-friendly controls, and reduced-motion styles
 
 ## Local preview
@@ -29,8 +30,8 @@ The existing GitHub Pages repository is `dheeraj-code77/pathfinder-career-roadma
 
 ## PDF notes
 
-The nine roadmap PDFs are stored under `public/pdfs/` with the required filenames for the deployed static site. Each roadmap keeps its matching PDF. Comparison figures are research estimates; salary, employer-fit, and role-availability panels are reported separately from 0–10 scores.
+The nine PDFs are stored under `public/pdfs/`: eight specialization roadmaps and the separate optional Computer Science Foundation prerequisite. Each download uses its matching PDF. Comparison figures are research estimates; salary, employer-fit, and role-availability panels are reported separately from 0–10 scores.
 
 ## Important
 
-This project keeps student details in memory only during the current browser session and does not store or transmit them.
+The site does not collect student details or transmit personal data.

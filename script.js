@@ -119,7 +119,7 @@ const DOMAIN_CONFIG = {
   CSDA: {
     label: 'CSDA',
     title: 'Computer Science and Data Analytics',
-    roadmapCount: 5,
+    roadmapCount: 4,
     roadmaps: [
       {
         title: 'Data Analyst',
@@ -216,16 +216,6 @@ const DOMAIN_CONFIG = {
           ['Mid', 'High demand; end-to-end ML deployment'],
           ['Senior', 'Selective; Principal DS / AI Research Lead']
         ]
-      },
-      {
-        title: 'Computer Science Foundation',
-        description: 'Strengthens core computing concepts, algorithms, and problem-solving foundations.',
-        icon: '🧠',
-        file: 'computer-science-foundation.pdf',
-        interactiveUrl: 'https://roadmap.sh/computer-science',
-        available: true,
-        foundation: true,
-        conclusion: 'Baseline for every track: discrete maths, algorithms, OS, networks, databases. Not scored separately in the source.'
       }
     ]
   }
@@ -287,13 +277,11 @@ function renderCareerComparisons(config) {
     (levels, career) => levels.concat((career.availability || []).map(([level]) => level)),
     []
   ))];
-  const foundationCareer = config.roadmaps.find((career) => career.foundation);
   const careerNotes = config.roadmaps
     .map((career) => `
       <article class="career-note">
         <h4>${career.title}</h4>
         <p>${career.conclusion}</p>
-        ${career.foundation ? '<p class="comparison-caveat">This foundation resource is not a scored job role in the supplied report.</p>' : ''}
       </article>
     `)
     .join('');
@@ -309,7 +297,6 @@ function renderCareerComparisons(config) {
         scoreRows,
         (career, index) => career.scores ? `${career.scores[index]} / 10` : '—'
       )}
-      ${foundationCareer ? '<p class="comparison-caveat">The supplied report does not score the Computer Science Foundation resource separately.</p>' : ''}
     </section>
     <section class="comparison-dataset" aria-labelledby="salary-comparison-heading">
       <h4 id="salary-comparison-heading">Salary comparison from the supplied report</h4>
@@ -320,7 +307,6 @@ function renderCareerComparisons(config) {
         salaryRows,
         (career, index) => career.salary ? career.salary[index] : '—'
       )}
-      ${foundationCareer ? '<p class="comparison-caveat">Salary data was not reported for the Computer Science Foundation resource.</p>' : ''}
     </section>
     <section class="comparison-dataset" aria-labelledby="employer-fit-heading">
       <h4 id="employer-fit-heading">Employer fit and fresher CTC as reported</h4>

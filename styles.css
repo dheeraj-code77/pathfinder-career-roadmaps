@@ -339,13 +339,6 @@ h2 {
   transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
-.fundamentals-note h3 {
-  margin: 0 0 8px;
-  color: var(--text);
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
 .beginner-note p {
   max-width: 80ch;
   margin: 0 0 8px;
@@ -397,6 +390,10 @@ h2 {
   background: linear-gradient(180deg, rgba(247, 241, 234, 0.98), rgba(247, 241, 234, 0.88));
   box-shadow: 0 8px 20px rgba(103, 6, 38, 0.07);
   transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.prerequisite-card {
+  margin-bottom: 24px;
 }
 
 .roadmap-card-header {
