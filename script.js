@@ -1,15 +1,15 @@
 const COMPARISON_CRITERIA = [
   ['A', 'Fresher Entry Accessibility', 'higher = easier entry'],
-  ['C', 'Learning Curve Manageability', 'higher = more manageable'],
-  ['D', 'Mathematics Requirement', 'higher = more maths'],
-  ['E', 'Production Coding Intensity', 'higher = more coding'],
-  ['F', 'Future Career Growth Trajectory', 'higher = stronger'],
-  ['G', 'AI Replacement and Automation Exposure', 'higher = more exposed'],
-  ['H', 'Hybrid-Degree Institutional Entry Barrier', 'higher = bigger barrier'],
-  ['I', 'Remote Job Accessibility', 'higher = more remote'],
-  ['K', 'Current Market Demand and Supply Dynamics', 'higher = more demand'],
-  ['L', 'Portfolio and Practical Evidence Dependency', 'higher = more proof'],
-  ['M', 'Career Flexibility and Transferability', 'higher = more transferable']
+  ['B', 'Learning Curve Manageability', 'higher = more manageable'],
+  ['C', 'Mathematics Requirement', 'higher = more maths'],
+  ['D', 'Production Coding Intensity', 'higher = more coding'],
+  ['E', 'Future Career Growth Trajectory', 'higher = stronger'],
+  ['F', 'AI Replacement and Automation Exposure', 'higher = more exposed'],
+  ['G', 'Hybrid-Degree Institutional Entry Barrier', 'higher = bigger barrier'],
+  ['H', 'Remote Job Accessibility', 'higher = more remote'],
+  ['I', 'Current Market Demand and Supply Dynamics', 'higher = more demand'],
+  ['J', 'Portfolio and Practical Evidence Dependency', 'higher = more proof'],
+  ['K', 'Career Flexibility and Transferability', 'higher = more transferable']
 ];
 
 const DOMAIN_CONFIG = {
@@ -24,7 +24,7 @@ const DOMAIN_CONFIG = {
         icon: '🛡️',
         file: 'cyber-security-specialist.pdf',
         available: true,
-        conclusion: 'Low AI exposure (G 3) and strong demand (K 8); certifications and hands-on lab proof (L 8) help bypass degree filters.',
+        conclusion: 'Low AI exposure (F 3) and strong demand (I 8); certifications and hands-on lab proof (J 8) help bypass degree filters.',
         scores: [7, 6, 3, 4, 8, 3, 5, 5, 8, 8, 8],
         salary: ['₹3.5 – 7.0 LPA', '₹5.0 LPA', '₹8.0 – 15.0 LPA', 'Base pay + shift allowances + certification bonuses', 'Glassdoor, CyberSecurityAcademy, Networkers Home'],
         employerFit: [
@@ -47,7 +47,7 @@ const DOMAIN_CONFIG = {
         icon: '🤖',
         file: 'ai-engineer.pdf',
         available: true,
-        conclusion: 'Top growth (F 10) and demand (K 9) with Low AI exposure (G 3); a deployed RAG/agent project is the key proof (L 9); fresher entry is Moderate (A 5).',
+        conclusion: 'Top growth (E 10) and demand (I 9) with Low AI exposure (F 3); a deployed RAG/agent project is the key proof (J 9); fresher entry is Moderate (A 5).',
         scores: [5, 4, 7, 8, 10, 3, 5, 7, 9, 9, 8],
         salary: ['₹6.0 – 14.0 LPA', '₹9.0 LPA', '₹15.0 – 30.0 LPA', 'High base + performance bonus + equity/RSUs', 'ShifttoTech, Futurense, Kalvium, BeInCareer'],
         employerFit: [
@@ -70,7 +70,7 @@ const DOMAIN_CONFIG = {
         icon: '🔐',
         file: 'devsecops-engineer.pdf',
         available: true,
-        conclusion: 'Lowest fresher entry in AI-CS (A 4); freshers usually start in junior DevOps or cloud roles. Growth is Very High (F 9), AI exposure Low (G 3).',
+        conclusion: 'Lowest fresher entry in AI-CS (A 4); freshers usually start in junior DevOps or cloud roles. Growth is Very High (E 9), AI exposure Low (F 3).',
         scores: [4, 4, 3, 8, 9, 3, 5, 7, 8, 8, 8],
         salary: ['₹4.0 – 8.5 LPA', '₹6.2 LPA', '₹12.0 – 22.0 LPA', 'Fixed salary + cloud certification premium + annual bonus', 'Guvi, Futurense, ShriResume, AmbitionBox'],
         employerFit: [
@@ -93,7 +93,7 @@ const DOMAIN_CONFIG = {
         icon: '🌐',
         file: 'network-engineer.pdf',
         available: true,
-        conclusion: 'Easiest fresher entry in AI-CS (A 8) and lowest maths (D 2); growth is lower (F 6) and AI exposure Moderate (G 5). CCNA-type certs are strong credentials.',
+        conclusion: 'Easiest fresher entry in AI-CS (A 8) and lowest maths (C 2); growth is lower (E 6) and AI exposure Moderate (F 5). CCNA-type certs are strong credentials.',
         scores: [8, 7, 2, 3, 6, 5, 4, 4, 6, 6, 6],
         salary: ['₹3.5 – 6.5 LPA', '₹4.5 LPA', '₹7.0 – 12.0 LPA', 'Fixed base pay + on-call allowances', 'Shiksha, NTT Data postings, Networkers Home'],
         employerFit: [
@@ -123,7 +123,7 @@ const DOMAIN_CONFIG = {
         icon: '📊',
         file: 'data-analyst.pdf',
         available: true,
-        conclusion: 'Easiest fresher entry in CSDA (A 8) with Moderate AI exposure (G 6); portfolio proof matters (L 8), transferability is high (M 8).',
+        conclusion: 'Easiest fresher entry in CSDA (A 8) with Moderate AI exposure (F 6); portfolio proof matters (J 8), transferability is high (K 8).',
         scores: [8, 7, 6, 5, 7, 6, 4, 7, 7, 8, 8],
         salary: ['₹3.0 – 6.0 LPA', '₹4.5 LPA', '₹8.0 – 14.0 LPA', 'Base salary + performance bonus', 'AmbitionBox, Glassdoor, Guvi'],
         employerFit: [
@@ -146,7 +146,7 @@ const DOMAIN_CONFIG = {
         icon: '💻',
         file: 'full-stack-developer.pdf',
         available: true,
-        conclusion: 'Largest entry-level hiring pool (A 7, K 8); portfolio is decisive (L 9) and coding intensity is highest (E 9); AI exposure is Moderate (G 5).',
+        conclusion: 'Largest entry-level hiring pool (A 7, I 8); portfolio is decisive (J 9) and coding intensity is highest (D 9); AI exposure is Moderate (F 5).',
         scores: [7, 6, 3, 9, 8, 5, 4, 8, 8, 9, 9],
         salary: ['₹4.0 – 8.0 LPA', '₹6.0 LPA', '₹10.0 – 20.0 LPA', 'Fixed pay + annual bonus + stock options (startups)', 'Indeed, PayScale, Glassdoor'],
         employerFit: [
@@ -169,7 +169,7 @@ const DOMAIN_CONFIG = {
         icon: '🧰',
         file: 'data-engineer.pdf',
         available: true,
-        conclusion: 'Very High growth (F 9) and Low AI exposure (G 3); fresher entry is Moderate (A 5) and the learning curve is mid-level (C 5).',
+        conclusion: 'Very High growth (E 9) and Low AI exposure (F 3); fresher entry is Moderate (A 5) and the learning curve is mid-level (B 5).',
         scores: [5, 5, 5, 8, 9, 3, 5, 6, 8, 8, 8],
         salary: ['₹4.5 – 9.0 LPA', '₹7.0 LPA', '₹11.0 – 22.0 LPA', 'Fixed CTC + joining bonus + ESOPs/RSUs', 'AmbitionBox, 6figr, levels.fyi'],
         employerFit: [
@@ -192,7 +192,7 @@ const DOMAIN_CONFIG = {
         icon: '📈',
         file: 'ai-and-data-scientist.pdf',
         available: true,
-        conclusion: 'Highest maths demand (D 8) and hybrid-degree barrier (H 6); lowest fresher entry (A 4). Public track records help offset the barrier.',
+        conclusion: 'Highest maths demand (C 8) and hybrid-degree barrier (G 6); lowest fresher entry (A 4). Public track records help offset the barrier.',
         scores: [4, 4, 8, 7, 9, 4, 6, 6, 7, 9, 7],
         salary: ['₹5.1 – 14.0 LPA', '₹8.5 LPA', '₹12.0 – 24.0 LPA', 'Base pay + performance incentive + RSUs', 'Glassdoor, AmbitionBox, Unstop'],
         employerFit: [
